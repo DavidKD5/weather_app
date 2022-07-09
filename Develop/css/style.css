@@ -25,10 +25,10 @@ body {
 }
 
 .weather_details {
-  max-width: 300px;
+  max-width: 500px;
   margin: auto;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 33% 33% 33%;
   column-gap: 10px;
   text-align: center;
   justify-content: center;
@@ -52,4 +52,12 @@ body {
   border: tan 1px solid;
   text-align: center;
   /* padding: 50px; */
+}
+
+.conditions {
+  grid-column: 1/4;
+}
+
+#searchdata {
+  color: white;
 }
