@@ -5,9 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Develop/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
     <title>Weather App</title>
   </head>
   <body>
+    <input type="checkbox" name="" id="check" class="xmenu" />
+    <div class="container">
+      <label for="check">
+        <span class="fas fa-times" id="times"></span>
+        <span class="fas fa-bars" id="bars"></span>
+      </label>
+      <div class="head">Search History</div>
+      <ol>
+        <ul id="searchHistory" class="historicalItem"></ul>
+      </ol>
+    </div>
+
     <div class="main_dashboard">
       <div class="search_cont">
         <input type="text" id="location_search" placeholder="Search" />
@@ -15,6 +31,7 @@
       <div class="city_date">
         <p class="city"></p>
         <p class="date"></p>
+        <img src="" alt="" class="img6" />
         <p class="temp"></p>
       </div>
 
@@ -22,41 +39,41 @@
         <p class="conditions"></p>
         <p class="wind"></p>
         <p class="humidity"></p>
-        <p class="uv">UV Index: <span class="uvIndex"></span></p>
+        <p class="uvIndex"></p>
       </div>
     </div>
     <div class="forecast">
       <div class="item">
         <p class="date1"></p>
-        <img src="" alt="" />
+        <img src="" alt="" class="img1" />
         <p class="temp_1"></p>
         <p class="wind1"></p>
         <p class="humidity1"></p>
       </div>
       <div class="item">
         <p class="date2"></p>
-        <img src="" alt="" />
+        <img src="" alt="" class="img2" />
         <p class="temp_2"></p>
         <p class="wind2"></p>
         <p class="humidity2"></p>
       </div>
       <div class="item">
         <p class="date3"></p>
-        <img src="" alt="" />
+        <img src="" alt="" class="img3" />
         <p class="temp_3"></p>
         <p class="wind3"></p>
         <p class="humidity3"></p>
       </div>
       <div class="item">
         <p class="date4"></p>
-        <img src="" alt="" />
+        <img src="" alt="" class="img4" />
         <p class="temp_4"></p>
         <p class="wind4"></p>
         <p class="humidity4"></p>
       </div>
       <div class="item">
         <p class="date5"></p>
-        <img src="" alt="" />
+        <img src="" alt="" class="img5" />
         <p class="temp_5"></p>
         <p class="wind5"></p>
         <p class="humidity5"></p>
