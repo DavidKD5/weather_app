@@ -48,7 +48,6 @@ var date_list = [currDate1, currDate2, currDate3, currDate4, currDate5];
 var dates_list = [date1, date2, date3, date4, date5];
 var wind_list = [wind1, wind2, wind3, wind4, wind5];
 var humidity_list = [humidity1, humidity2, humidity3, humidity4, humidity5];
-var recentSearches = [];
 var img_list = [img1, img2, img3, img4, img5, img6];
 
 // get 5 days from today
@@ -107,7 +106,6 @@ fetch(
 
     // display color level for uv index
     var uv_index_int = parseInt(data.days[0].uvindex);
-    console.log(uv_index_int);
     if (uv_index_int > 0 && uv_index_int < 3) {
       uv_index.css("background-color", "green");
     }
@@ -121,14 +119,11 @@ fetch(
     if (uv_index_int >= 8) {
       uv_index.css("background-color", "red");
     }
-
-    console.log(data);
   });
 
 // capture user input and display current weather and 5 day forcast
 function Alert() {
   var user_location_input = location_search.val().toLowerCase();
-
   fetch(
     "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
       user_location_input +
@@ -182,7 +177,6 @@ function Alert() {
 
       // display color level for uv index
       var uv_index_int = parseInt(data.days[0].uvindex);
-      console.log(uv_index_int);
       if (uv_index_int > 0 && uv_index_int < 3) {
         uv_index.css("background-color", "green");
       }
@@ -196,15 +190,17 @@ function Alert() {
       if (uv_index_int >= 8) {
         uv_index.css("background-color", "red");
       }
-      console.log(data);
     });
 }
-
 // allows user to search by pressing enter key
+var recentSearches = [];
+
 function enter_search(e) {
   if (e.keyCode === 13) {
     Alert();
     recentSearches.push(location_search.val());
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+    // console.log(recentSearches);
     location_search.val("");
     $("#searchHistory").text("");
 
@@ -218,6 +214,20 @@ function enter_search(e) {
       );
     });
   }
+}
+
+function getHistory() {
+  var storedValue = JSON.parse(localStorage.getItem("recentSearches"));
+  $.each(storedValue, function (index, value) {
+    $("#searchHistory").append(
+      "<li class='historyItem'  onclick='addtotextbox(" +
+        index +
+        ")'>" +
+        value +
+        "</li>"
+    );
+  });
+  console.log(storedValue);
 }
 
 function addtotextbox(id) {
@@ -249,3 +259,4 @@ function addtotextbox(id) {
     });
 }
 location_search.keyup(enter_search);
+getHistory();
